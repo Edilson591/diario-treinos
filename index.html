@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diário de Treinos</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            dark: { 900: '#0f0c29', 800: '#302b63', 700: '#24243e' },
+            gold: { 400: '#f0c040', 500: '#e6a800' },
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏋️</text></svg>">
+</head>
+
+<body
+  class="bg-gradient-to-br from-dark-900 via-dark-800 to-dark-700 min-h-screen text-gray-200 p-5 font-sans antialiased">
+
+  <div class="max-w-2xl mx-auto bg-white/5 backdrop-blur rounded-2xl p-6 sm:p-8 shadow-2xl border border-white/10">
+    <header class="text-center mb-8">
+      <h1 class="text-3xl sm:text-4xl font-bold text-gold-400 mb-1">🏋️ Diário de Treinos</h1>
+      <p class="text-gray-400 text-sm">Registre seus exercícios, séries e cargas</p>
+    </header>
+
+    <section class="bg-white/5 rounded-xl p-5 mb-6">
+      <h2 class="text-lg font-semibold text-gray-300 mb-4 pb-2 border-b border-white/10">Adicionar Exercício</h2>
+      <form id="exercise-form">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+          <div>
+            <label for="exercise-name" class="block text-xs text-gray-400 mb-1">Exercício</label>
+            <input type="text" id="exercise-name" list="exercise-options" placeholder="Digite ou selecione um exercício"
+              class="w-full px-3 py-2.5 bg-white/10 border border-white/20 rounded-lg text-gray-200 placeholder-gray-500 focus:outline-none focus:border-gold-400 transition text-sm" />
+
+            <p id="exercise-name-error" class="text-red-400 text-xs mt-1 hidden"></p>
+            <div id="exercise-suggestions"
+              class="hidden absolute z-50 mt-1 w-full bg-dark-900 border border-white/20 rounded-lg shadow-lg max-h-60 overflow-y-auto">
+            </div>
+          </div>
+          <div>
+            <label for="exercise-day" class="block text-xs text-gray-400 mb-1">Dia da Semana</label>
+            <select id="exercise-day" 
+              class="w-full px-3 py-2.5 bg-white/10 border border-white/20 rounded-lg text-gray-200 focus:outline-none focus:border-gold-400 transition text-sm">
+              <option value="" class="bg-dark-800">Selecione...</option>
+              <option value="Segunda" class="bg-dark-800">Segunda</option>
+              <option value="Terça" class="bg-dark-800">Terça</option>
+              <option value="Quarta" class="bg-dark-800">Quarta</option>
+              <option value="Quinta" class="bg-dark-800">Quinta</option>
+              <option value="Sexta" class="bg-dark-800">Sexta</option>
+              <option value="Sábado" class="bg-dark-800">Sábado</option>
+              <option value="Domingo" class="bg-dark-800">Domingo</option>
+            </select>
+
+            <p id="exercise-day-error" class="text-red-400 text-xs mt-1 hidden"></p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">
+          <div>
+            <label for="exercise-sets" class="block text-xs text-gray-400 mb-1">Séries</label>
+            <input type="text" id="exercise-sets" placeholder="Ex: 4"  inputmode="numeric"
+              class="w-full px-3 py-2.5 bg-white/10 border border-white/20 rounded-lg text-gray-200 placeholder-gray-500 focus:outline-none focus:border-gold-400 transition text-sm">
+            <p id="exercise-sets-error" class="text-red-400 text-xs mt-1 hidden"></p>
+
+          </div>
+          <div>
+            <label for="exercise-reps" class="block text-xs text-gray-400 mb-1">Repetições</label>
+            <input type="text" id="exercise-reps" placeholder="Ex: 8-12" 
+              class="w-full px-3 py-2.5 bg-white/10 border border-white/20 rounded-lg text-gray-200 placeholder-gray-500 focus:outline-none focus:border-gold-400 transition text-sm">
+            <p id="exercise-reps-error" class="text-red-400 text-xs mt-1 hidden"></p>
+          </div>
+          <div>
+            <label for="exercise-weight" class="block text-xs text-gray-400 mb-1">Carga (kg)</label>
+            <input type="text" id="exercise-weight" placeholder="Ex: 60" 
+              class="w-full px-3 py-2.5 bg-white/10 border border-white/20 rounded-lg text-gray-200 placeholder-gray-500 focus:outline-none focus:border-gold-400 transition text-sm">
+            <p id="exercise-weight-error" class="text-red-400 text-xs mt-1 hidden"></p>
+
+          </div>
+        </div>
+
+        <button type="submit"
+          class="w-full py-3 bg-gradient-to-r from-gold-400 to-gold-500  font-bold rounded-lg text-base hover:opacity-90 transition cursor-pointer">
+          Registrar Exercício
+        </button>
+      </form>
+    </section>
+
+    <section class="bg-white/5 rounded-xl p-5">
+      <h2 class="text-lg font-semibold text-gray-300 mb-4 pb-2 border-b border-white/10">Meus Treinos</h2>
+      <div class="flex items-center gap-3 mb-4">
+        <label for="filter-day" class="text-sm text-gray-400">Filtrar por dia:</label>
+        <select id="filter-day"
+          class="px-3 py-2 bg-white/10 border border-white/20 rounded-lg text-gray-200 text-sm focus:outline-none focus:border-gold-400 transition">
+          <option value="Todos" class="bg-dark-800">Todos</option>
+          <option value="Segunda" class="bg-dark-800">Segunda</option>
+          <option value="Terça" class="bg-dark-800">Terça</option>
+          <option value="Quarta" class="bg-dark-800">Quarta</option>
+          <option value="Quinta" class="bg-dark-800">Quinta</option>
+          <option value="Sexta" class="bg-dark-800">Sexta</option>
+          <option value="Sábado" class="bg-dark-800">Sábado</option>
+          <option value="Domingo" class="bg-dark-800">Domingo</option>
+        </select>
+      </div>
+      <div id="exercises-list" class="flex flex-col gap-2.5"></div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
