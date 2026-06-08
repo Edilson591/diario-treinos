@@ -1,25 +1,51 @@
+# 🏋️ Diário de Treinos
+
+Aplicação web desenvolvida para registro e organização de exercícios físicos diários. O sistema permite cadastrar treinos com informações como nome do exercício, dia da semana, séries, repetições e carga, além de oferecer filtros e persistência de dados.
+
+---
+
+## 📌 Descrição do projeto
+
+O **Diário de Treinos** é uma aplicação front-end voltada para o gerenciamento simples de rotinas de treino. O objetivo é facilitar o registro e acompanhamento de exercícios físicos de forma prática e intuitiva.
+
+Os dados são armazenados localmente no navegador utilizando `localStorage`, garantindo que as informações permaneçam salvas mesmo após recarregar a página.
+
+---
+
 ## 🚀 Funcionalidades
 
-* **Registro de Exercícios:** Interface intuitiva para cadastrar exercícios com nome, dia da semana, séries, repetições e carga.
-* **Filtro por Dia da Semana:** Organização visual eficiente que permite filtrar e visualizar rapidamente a lista de treinos de cada dia.
-* **Design Responsivo e Moderno:** Interface elegante com tema escuro (*dark mode*), detalhes em dourado e efeitos de vidro (*glassmorphism/backdrop-blur*), totalmente adaptada para dispositivos móveis, tablets e computadores.
-* **Validação de Campos:** Sistema de validação para garantir o preenchimento correto das informações e exibir mensagens amigáveis em caso de erros ou campos incompletos.
+- 🏋️ Cadastro de exercícios (nome, dia da semana, séries, repetições e carga)
+- 📅 Filtro de exercícios por dia da semana
+- 🗑️ Remoção de exercícios da lista
+- 💾 Persistência de dados com `localStorage`
+- ⚠️ Validação de campos com mensagens de erro
+- 🔎 Sugestão de exercícios (autocomplete)
+- 🎨 Interface responsiva e moderna
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## 🛠️ Tecnologias utilizadas
 
-* **HTML5:** Estruturação semântica e acessível da página.
-* **Tailwind CSS:** Framework utilitário para estilização ágil, moderna e responsiva, utilizando uma paleta de cores personalizada (`dark` e `gold`) e efeitos visuais avançados.
-* **JavaScript (Vanilla):** Lógica pura para manipulação dinâmica do DOM, gerenciamento de eventos, validações de formulário e filtragem de dados em tempo real.
+- **HTML5** — estrutura da aplicação
+- **Tailwind CSS (via CDN)** — estilização moderna e responsiva com tema escuro e detalhes em dourado
+- **JavaScript (Vanilla)** — lógica da aplicação, manipulação do DOM, eventos e validações
 
 ---
 
-## 📂 Estrutura do Projeto
+## 🎨 Interface
 
-O projeto adota uma arquitetura simples e organizada, separando claramente as responsabilidades:
+A interface foi desenvolvida utilizando **Tailwind CSS**, com foco em:
+
+- Design responsivo (mobile, tablet e desktop)
+- Tema escuro (*dark mode*)
+- Estilo moderno com efeitos de profundidade (*glassmorphism*)
+- Experiência de usuário simples e intuitiva
+
+---
+
+## 📂 Estrutura do projeto
 
 ```text
-├── index.html       # Estrutura semântica e interface visual da aplicação
-├── script.js        # Lógica de negócio, manipulação do DOM e eventos
-└── README.md        # Documentação e guia do projeto
+├── index.html   # Estrutura da interface
+├── script.js    # Lógica da aplicação
+└── README.md    # Documentação do projeto
